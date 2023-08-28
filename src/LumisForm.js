@@ -16,7 +16,7 @@ function LumisForm() {
         setLoading(true);  // Start the loading animation
     
         try {
-            const response = await axios.post('http://localhost:5002/api/create_alert', {
+            const response = await axios.post('https://lumis-073b4d2c651d.herokuapp.com/api/create_alert', {
                 company: company,
                 cadence: cadence,
                 email: email
