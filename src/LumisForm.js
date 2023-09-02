@@ -10,6 +10,8 @@ function LumisForm() {
     const [successMessage, setSuccessMessage] = useState(null);
     const [showToast, setShowToast] = useState(false);
     const [showMessage, setShowMessage] = useState(false);
+    const [showError, setShowError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
 
 
@@ -33,24 +35,29 @@ function LumisForm() {
                 console.log('Success from create_alert.');
                 setShowMessage(true);
                 console.log('Set message to true.');
-                setShowToast(true);
                 setTimeout(() => {
-                    setShowToast(false);
                     setShowMessage(false);
-                }, 4000);
+                }, 6000);
     
                 const savedAlert = response.data.alert;
                 const sendResponse = await axios.post('https://lumis-073b4d2c651d.herokuapp.com/api/send_alert', {
                     alert: savedAlert
                 });
+                if (sendResponse.data.message !== "Success") {
+                    setErrorMessage('There was an error sending the alert.');
+                    setShowError(true);
+                }
     
             } else {
-                console.error(response.data.error);
+                setErrorMessage('There was an error creating the alert.');
+                setShowError(true);
             }
     
         } catch (error) {
             setLoading(false);
             console.error("Error:", error);
+            setErrorMessage('An unexpected error occurred.');
+            setShowError(true);
         }
     };
     
@@ -78,6 +85,8 @@ function LumisForm() {
             </form>
             <div className="container">
                 {showMessage && <div className="success-message">Alert created successfully!<br></br>You will receive your first alert to your inbox in a few moments.</div>}
+                {showError && <div className="error-message">{errorMessage}</div>}
+
 
             </div>
         </div>

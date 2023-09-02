@@ -72,9 +72,9 @@ input[type="submit"]:hover {
 }
 
 .spinner {
-    border: 4px solid rgba(255, 255, 255, 0.3);
+    border: 8px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
-    border-top: 4px solid black;
+    border-top: 10px solid black;
     width: 24px;
     height: 24px;
     animation: spin 2s linear infinite;
@@ -95,6 +95,17 @@ input[type="submit"]:hover {
     transition: color 2s;
 }
 
+/* Error message styling */
+.error-message {
+    padding: 10px;
+    background-color: #FFD2D2; /* Light red background */
+    color: #D8000C; /* Dark red text */
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: color 2s;
+}
+
+
 
 .toast {
     position: fixed;
@@ -111,6 +122,3 @@ input[type="submit"]:hover {
 }
 
 
-.success-message {
-    margin-top: 20px;
-}
