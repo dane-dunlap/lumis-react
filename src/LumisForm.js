@@ -24,11 +24,15 @@ function LumisForm() {
                 cadence: cadence,
                 email: email
             });
+            console.log('Create Alert Response:', response.data);
+
     
             setLoading(false);
     
             if (response.data.message === "Success") {
+                console.log('Success from create_alert.');
                 setShowMessage(true);
+                console.log('Set message to true.');
                 setShowToast(true);
                 setTimeout(() => {
                     setShowToast(false);
