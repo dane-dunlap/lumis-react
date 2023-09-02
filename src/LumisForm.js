@@ -14,7 +14,8 @@ function LumisForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);  // Start the loading animation
-    
+
+        
         try {
             const response = await axios.post('https://lumis-073b4d2c651d.herokuapp.com/api/create_alert', {
                 company: company,
@@ -34,6 +35,15 @@ function LumisForm() {
                 }
             }, 1000);  // <--- This is the missing duration parameter for the outer setTimeout. Adjust the 1000 (1 second) to your desired duration.
     
+            if (response.data.message === "Success") {
+                const savedAlert = response.data.alert;
+                // Send the saved alert data to the send_alert route
+                const sendResponse = await axios.post('https://lumis-073b4d2c651d.herokuapp.com/api/send_alert', {
+                    alert: savedAlert
+                });
+                // Handle sendResponse here, maybe show a success toast?
+            }
+        
         } catch (error) {
             setLoading(false);  // Stop the loading animation immediately in case of an error
             console.error("Error:", error);
