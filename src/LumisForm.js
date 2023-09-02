@@ -9,46 +9,47 @@ function LumisForm() {
     const [loading, setLoading] = useState(false);
     const [successMessage, setSuccessMessage] = useState(null);
     const [showToast, setShowToast] = useState(false);
+    const [showMessage, setShowMessage] = useState(false);
+
+
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true);  // Start the loading animation
-
-        
+        setLoading(true);
+    
         try {
             const response = await axios.post('https://lumis-073b4d2c651d.herokuapp.com/api/create_alert', {
                 company: company,
                 cadence: cadence,
                 email: email
             });
-            setTimeout(() => {
-                setLoading(false);  // Stop the loading animation
     
-                if (response.data.message === "Success") {
-                    setShowToast(true); // Show the toast
-                    setTimeout(() => {
-                        setShowToast(false); // Hide the toast after 2 seconds
-                    }, 2000);
-                } else {
-                    console.error(response.data.error);
-                }
-            }, 1000);  // <--- This is the missing duration parameter for the outer setTimeout. Adjust the 1000 (1 second) to your desired duration.
+            setLoading(false);
     
             if (response.data.message === "Success") {
+                setShowMessage(true);
+                setShowToast(true);
+                setTimeout(() => {
+                    setShowToast(false);
+                    setShowMessage(false);
+                }, 4000);
+    
                 const savedAlert = response.data.alert;
-                // Send the saved alert data to the send_alert route
                 const sendResponse = await axios.post('https://lumis-073b4d2c651d.herokuapp.com/api/send_alert', {
                     alert: savedAlert
                 });
-                // Handle sendResponse here, maybe show a success toast?
+    
+            } else {
+                console.error(response.data.error);
             }
-        
+    
         } catch (error) {
-            setLoading(false);  // Stop the loading animation immediately in case of an error
+            setLoading(false);
             console.error("Error:", error);
         }
     };
+    
     
     
     return (
@@ -73,6 +74,8 @@ function LumisForm() {
             </form>
             <div className="container">
                 {showToast && <div className="toast">Alert created successfully!</div>}
+                {showMessage && <div className="success-message">You will receive your first alert to your inbox in a few moments.</div>}
+
             </div>
         </div>
 
