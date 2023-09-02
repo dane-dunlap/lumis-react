@@ -43,9 +43,8 @@ function LumisForm() {
     
     return (
         <div className="container">
-            <h1>Updates on your favorite companies, directly to your inbox</h1>
-            <p className="description">Enter the list of companies you would like updates on below. Then enter your email and select how often you want Lumis to send you summaries.</p>
-
+            <h1>Get updates on your favorite companies, directly to your inbox</h1>
+            <p className="description">Enter the company or key word you want updates on below. Set how often you want to receive alerts and Lumis will summarize the top news about that keyword directly to your inbox!</p>
             {successMessage && <div className="success-message">{successMessage}</div>}
 
             <form onSubmit={handleSubmit}>
