@@ -77,8 +77,7 @@ function LumisForm() {
                 {loading && <div className="spinner"></div>}
             </form>
             <div className="container">
-                {showToast && <div className="toast">Alert created successfully!</div>}
-                {showMessage && <div className="success-message">You will receive your first alert to your inbox in a few moments.</div>}
+                {showMessage && <div className="success-message">Alert created successfully!<br></br>You will receive your first alert to your inbox in a few moments.</div>}
 
             </div>
         </div>
