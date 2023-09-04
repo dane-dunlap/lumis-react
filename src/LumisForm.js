@@ -27,7 +27,6 @@ function LumisForm() {
                 email: email
             });
             console.log('Create Alert Response:', response.data);
-
     
             setLoading(false);
     
@@ -37,21 +36,36 @@ function LumisForm() {
                 console.log('Set message to true.');
                 setTimeout(() => {
                     setShowMessage(false);
-                }, 6000);
+                }, 1000);
     
                 const savedAlert = response.data.alert;
-                const sendResponse = await axios.post('https://lumis-073b4d2c651d.herokuapp.com/api/send_alert', {
-                    alert: savedAlert
-                });
-            } 
     
-        } catch (error) {
+                // Try to send the alert
+                try {
+                    const sendResponse = await axios.post('https://lumis-073b4d2c651d.herokuapp.com/api/send_alert', {
+                        alert: savedAlert
+                    });
+                    console.log('Alert sent successfully:', sendResponse.data);
+                } catch (sendError) {
+                    console.error("Error sending alert:", sendError);
+                    setErrorMessage('There was an error sending the alert.');
+                    setShowError(true);
+                }
+    
+            } else {
+                console.error("Error during alert creation:", response.data.message);
+                setErrorMessage('There was an error creating the alert.');
+                setShowError(true);
+            }
+    
+        } catch (createError) {
             setLoading(false);
-            console.error("Error:", error);
+            console.error("Error during alert creation:", createError);
             setErrorMessage('There was an error creating the alert.');
             setShowError(true);
         }
     };
+    
     
     
     
