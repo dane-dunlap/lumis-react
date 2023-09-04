@@ -1,41 +1,44 @@
 body {
     font-family: 'Hanken Grotesk', sans-serif;
-    background-color: #ffffff; /* Set the body background to white */
+    background-color: #ffffff; 
     padding: 40px;
-    margin: 0; /* Remove default body margin */
+    margin: 0; 
+    display: flex;
+    align-items: center;  /* Vertically align */
+    justify-content: center;  /* Horizontally align */
+    height: 100vh;  /* Set body height to viewport height */
 }
 
 .logo {
-    font-size: 40px;       /* Adjust size as needed */
-    font-weight: bold;     /* Makes the text thicker */
-    color: #333;           /* Default color, change as per your design needs */
-    padding: 10px 20px;    /* Space around the logo */
-    position: absolute;    /* Absolute positioning */
-    top: 0;                /* Positioned at the top */
-    left: 0;               /* Positioned at the left */
-    background: #fff;      /* You can choose to have a background color */
-    border-bottom-right-radius: 8px; /* Optional rounded corner */
+    font-size: 40px;       
+    font-weight: bold;     
+    color: #333;           
+    padding: 10px 20px;    
+    position: absolute;    
+    top: 0;                
+    left: 0;               
+    background: #fff;      
+    border-bottom-right-radius: 8px;
     font-family: 'Hanken Grotesk', sans-serif;
 }
-
 
 .container {
     padding: 30px;
     max-width: 600px;
-    margin: 40px 0 40px 100px; /* Top and bottom have 40px, left has 100px */
+    margin: 0 auto;  /* Adjusted to center the container horizontally */
 }
 
-.description{
+.description {
     font-size: 14px;
-    color:grey;
+    color: grey;
     margin-bottom: 50px;
     text-align: left;
 }
 
 h1 {
-    text-align: left; /* Aligned the text to the left */
+    text-align: left; 
     margin-bottom: 10px;
-    font-weight:600;
+    font-weight: 600;
 }
 
 .label {
@@ -48,8 +51,9 @@ h1 {
 * {
     box-sizing: border-box;
 }
+
 input[type="text"], input[type="email"], select, input[type="submit"] {
-    width: 100%; /* Ensure all elements take up full width of their container */
+    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -85,7 +89,6 @@ input[type="submit"]:hover {
     100% { transform: rotate(360deg); }
 }
 
-/* Success message styling */
 .success-message {
     padding: 10px;
     background-color: #DFF2BF;
@@ -95,30 +98,47 @@ input[type="submit"]:hover {
     transition: color 2s;
 }
 
-/* Error message styling */
 .error-message {
     padding: 10px;
-    background-color: #FFD2D2; /* Light red background */
-    color: #D8000C; /* Dark red text */
+    background-color: #FFD2D2;
+    color: #D8000C;
     border-radius: 5px;
     margin-bottom: 10px;
     transition: color 2s;
 }
-
-
 
 .toast {
     position: fixed;
     bottom: 5%;
     left: 85%;
     transform: translateX(-50%);
-    background-color: #4CAF50; /* green background */
+    background-color: #4CAF50;
     color: white;
     padding: 1rem;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000; /* Ensure it's above other elements */
+    z-index: 1000;
     opacity: 0.9;
 }
 
+/* Mobile responsiveness */
+@media only screen and (max-width: 768px) {
+    .container {
+        padding: 15px;
+        max-width: 100%; /* On mobile, make it full width */
+        margin: 20px 0; /* Reduce margin */
+    }
 
+    .logo {
+        font-size: 24px;  /* Reduce logo size */
+        padding: 5px 10px; /* Reduce padding */
+    }
+
+    h1 {
+        font-size: 24px; /* Reduce size for mobile */
+    }
+
+    .description {
+        margin-bottom: 30px;  /* Reduce margin */
+    }
+}
