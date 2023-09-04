@@ -43,20 +43,12 @@ function LumisForm() {
                 const sendResponse = await axios.post('https://lumis-073b4d2c651d.herokuapp.com/api/send_alert', {
                     alert: savedAlert
                 });
-                if (sendResponse.data.message !== "Success") {
-                    setErrorMessage('There was an error sending the alert.');
-                    setShowError(true);
-                }
-    
-            } else {
-                setErrorMessage('There was an error creating the alert.');
-                setShowError(true);
-            }
+            } 
     
         } catch (error) {
             setLoading(false);
             console.error("Error:", error);
-            setErrorMessage('An unexpected error occurred.');
+            setErrorMessage('There was an error creating the alert.');
             setShowError(true);
         }
     };
