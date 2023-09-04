@@ -36,7 +36,7 @@ function LumisForm() {
                 console.log('Set message to true.');
                 setTimeout(() => {
                     setShowMessage(false);
-                }, 1000);
+                }, 2000);
     
                 const savedAlert = response.data.alert;
     
