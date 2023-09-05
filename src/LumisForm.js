@@ -20,44 +20,39 @@ function LumisForm() {
         e.preventDefault();
         setLoading(true);
     
-        try {
-            const response = await axios.post('https://lumis-073b4d2c651d.herokuapp.com/api/create_alert', {
-                company: company,
-                cadence: cadence,
-                email: email
+        
+        const response = await axios.post('https://lumis-073b4d2c651d.herokuapp.com/api/create_alert', {
+            company: company,
+            cadence: cadence,
+            email: email
+        });
+        console.log('Create Alert Response:', response.data);
+
+        setLoading(false);
+
+        if (response.data.message === "Success") {
+            console.log('Success from create_alert.');
+            setShowMessage(true);
+            console.log('Set message to true.');
+            setTimeout(() => {
+                setShowMessage(false);
+            }, 2000);
+
+            const savedAlert = response.data.alert;
+
+            // Try to send the alert
+            const sendResponse = await axios.post('https://lumis-073b4d2c651d.herokuapp.com/api/send_alert', {
+                alert: savedAlert
             });
-            console.log('Create Alert Response:', response.data);
-    
-            setLoading(false);
-    
-            if (response.data.message === "Success") {
-                console.log('Success from create_alert.');
-                setShowMessage(true);
-                console.log('Set message to true.');
-                setTimeout(() => {
-                    setShowMessage(false);
-                }, 2000);
-    
-                const savedAlert = response.data.alert;
-    
-                // Try to send the alert
-                const sendResponse = await axios.post('https://lumis-073b4d2c651d.herokuapp.com/api/send_alert', {
-                    alert: savedAlert
-                });
-                console.log('Alert sent successfully:', sendResponse.data);
-    
-            } else {
-                console.error("Error during alert creation:", response.data.message);
-                setErrorMessage('There was an error creating the alert.');
-                setShowError(true);
-            }
-    
-        } catch (createError) {
-            setLoading(false);
-            console.error("Error during alert creation:", createError);
+            console.log('Alert sent successfully:', sendResponse.data);
+
+        } else {
+            console.error("Error during alert creation:", response.data.message);
             setErrorMessage('There was an error creating the alert.');
             setShowError(true);
         }
+
+        
     };
     
     
