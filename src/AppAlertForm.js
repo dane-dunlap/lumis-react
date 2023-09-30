@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './LumisForm.css'; 
 
-function LumisForm() {
+function AppAlertForm() {
     const [company, setCompany] = useState('');
     const [cadence, setCadence] = useState('Daily');
     const [email, setEmail] = useState('');
@@ -90,4 +90,4 @@ function LumisForm() {
     );
 };
 
-export default LumisForm;
+export default AppAlertForm;
