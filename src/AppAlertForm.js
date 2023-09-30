@@ -40,7 +40,7 @@ function AppAlertForm() {
             const savedAlert = response.data.alert;
 
             // Try to send the alert
-            const sendResponse = await axios.post('https://lumis-073b4d2c651d.herokuapp.com/api/send_alert', {
+            const sendResponse = await axios.post('https://lumis-073b4d2c651d.herokuapp.com/api/send_app_alert', {
                 alert: savedAlert
             });
             console.log('Alert sent successfully:', sendResponse.data);
