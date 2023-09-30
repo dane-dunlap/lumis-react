@@ -22,7 +22,7 @@ function AppAlertForm() {
         
         const response = await axios.post('https://lumis-073b4d2c651d.herokuapp.com/api/create_app_alert', {
             app_name: app_name,
-            country: country,
+            app_country: country,
             email: email
         });
         console.log('Create Alert Response:', response.data);
