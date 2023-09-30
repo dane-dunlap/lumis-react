@@ -14,7 +14,7 @@ function RegistrationForm() {
         }
 
         try {
-            const response = await axios.post('/api/register', { email, password });
+            const response = await axios.post('https://lumis-073b4d2c651d.herokuapp.com/api/register', { email, password });
             console.log(response.data);
             alert('Registration successful');
         } catch (error) {
