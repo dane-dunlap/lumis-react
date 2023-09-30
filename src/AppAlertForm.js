@@ -3,7 +3,7 @@ import axios from 'axios';
 import './LumisForm.css'; 
 
 function AppAlertForm() {
-    const [company, set_app_name] = useState('');
+    const [app_name, set_app_name] = useState('');
     const [country, setCountry] = useState('');
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(false);
@@ -65,6 +65,7 @@ function AppAlertForm() {
             <form onSubmit={handleSubmit}>
                 <div className="label">Company</div>
                 <input type="text" value={app_name} onChange={e => set_app_name(e.target.value)} required />
+                <div className="label">2-Letter Country Code</div>
                 <input type="text" value={country} onChange={e => setCountry(e.target.value)} required />
                 <div className="label">Email</div>
                 <input type="email" placeholder="Enter your email" required value={email} onChange={e => setEmail(e.target.value)} />
@@ -78,7 +79,7 @@ function AppAlertForm() {
 
 
             </div>
-            <h1>hello</h1>
+            
         </div>
 
         
