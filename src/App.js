@@ -1,8 +1,6 @@
 import React from 'react';
 import './App.css';
 import './LumisForm.css';
-import LumisForm from './LumisForm';
-import RegistrationForm from './RegistrationForm';
 import AppAlertForm from './AppAlertForm';
 
 

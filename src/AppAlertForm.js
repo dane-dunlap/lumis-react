@@ -3,8 +3,8 @@ import axios from 'axios';
 import './LumisForm.css'; 
 
 function AppAlertForm() {
-    const [company, setCompany] = useState('');
-    const [cadence, setCadence] = useState('Daily');
+    const [company, set_app_name] = useState('');
+    const [country, setCountry] = useState('');
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(false);
     const [successMessage, setSuccessMessage] = useState(null);
@@ -12,7 +12,6 @@ function AppAlertForm() {
     const [showMessage, setShowMessage] = useState(false);
     const [showError, setShowError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-
 
 
 
@@ -65,12 +64,8 @@ function AppAlertForm() {
 
             <form onSubmit={handleSubmit}>
                 <div className="label">Company</div>
-                <input type="text" value={company} onChange={e => setCompany(e.target.value)} required />
-                <div className="label">Update Frequency</div>
-                <select value={cadence} onChange={e => setCadence(e.target.value)} required>
-                    <option value="Daily">Daily</option>
-                    <option value="Weekly">Weekly</option>
-                </select>
+                <input type="text" value={app_name} onChange={e => set_app_name(e.target.value)} required />
+                <input type="text" value={country} onChange={e => setCountry(e.target.value)} required />
                 <div className="label">Email</div>
                 <input type="email" placeholder="Enter your email" required value={email} onChange={e => setEmail(e.target.value)} />
 
