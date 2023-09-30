@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import './LumisForm.css';
 import LumisForm from './LumisForm';
@@ -13,17 +13,11 @@ function App() {
                 <div className="logo">
                     ✨ Lumis
                 </div>
-                <Switch>
-                    <Route path="/register">
-                        <RegistrationForm />
-                    </Route>
-                    <Route path="/login">
-                        <LoginForm />
-                    </Route>
-                    <Route path="/">
-                        <LumisForm />
-                    </Route>
-                </Switch>
+                <Routes>
+                    <Route path="/register" element={<RegistrationForm />} />
+                    <Route path="/login" element={<LoginForm />} />
+                    <Route path="/" element={<LumisForm />} />
+                </Routes>
             </div>
         </Router>
     );
