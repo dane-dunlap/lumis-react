@@ -14,7 +14,7 @@ function App() {
             <div className="logo">
                 ✨ Lumis
             </div>
-            <RegistrationForm />
+            <AppAlertFormn />
         </div>
     );
 }
