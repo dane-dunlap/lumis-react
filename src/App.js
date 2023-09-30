@@ -5,6 +5,7 @@ import './LumisForm.css';
 import LumisForm from './LumisForm';
 import RegistrationForm from './RegistrationForm';
 import LoginForm from './LoginForm';
+import HomePage from './HomePage';
 
 function App() {
     return (
