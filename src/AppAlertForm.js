@@ -58,15 +58,15 @@ function AppAlertForm() {
     
     return (
         <div className="container">
-            <h1>Get updates on your favorite companies, directly to your inbox</h1>
-            <p className="description">Enter the company or key word you want updates on below. Set how often you want to receive alerts and Lumis will summarize the top news about that keyword directly to your inbox!</p>
+            <h1>Follow any app and get updates when they release new app versions</h1>
+            <p className="description">Follow competitor apps and get information about their newest releases to see if they have launched new features 👀</p>
             {successMessage && <div className="success-message">{successMessage}</div>}
 
             <form onSubmit={handleSubmit}>
-                <div className="label">Company</div>
-                <input type="text" value={app_name} onChange={e => set_app_name(e.target.value)} required />
+                <div className="label">App Name</div>
+                <input type="text" value={app_name} placeholder="Enter the app's name" onChange={e => set_app_name(e.target.value)} required />
                 <div className="label">2-Letter Country Code</div>
-                <input type="text" value={country} onChange={e => setCountry(e.target.value)} required />
+                <input type="text" value={country} placeholder="Enter the two letter country" onChange={e => setCountry(e.target.value)} required />
                 <div className="label">Email</div>
                 <input type="email" placeholder="Enter your email" required value={email} onChange={e => setEmail(e.target.value)} />
 
