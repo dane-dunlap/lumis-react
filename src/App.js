@@ -14,7 +14,6 @@ function App() {
                 ✨ Lumis
             </div>
             <AppAlertForm />
-            <LumisForm />
         </div>
     );
 }
