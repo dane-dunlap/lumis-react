@@ -12,11 +12,9 @@ function App() {
                 <div className="logo">
                     ✨ Lumis
                 </div>
-                <nav>
-                    <ul>
-                        <li><Link to="/">LumisForm</Link></li>
-                        <li><Link to="/app-alert">App Alert Form</Link></li>
-                    </ul>
+                <nav className="nav">
+                    <Link to="/" className="nav-button">LumisForm</Link>
+                    <Link to="/app-alert" className="nav-button">App Alert Form</Link>
                 </nav>
                 <Routes>
                     <Route index element={<LumisForm />} />
