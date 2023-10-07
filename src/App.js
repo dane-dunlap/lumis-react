@@ -13,8 +13,8 @@ function App() {
                     ✨ Lumis
                 </div>
                 <nav className="nav">
-                    <Link to="/" className="nav-button">LumisForm</Link>
-                    <Link to="/app-alert" className="nav-button">App Alert Form</Link>
+                    <Link to="/" className="nav-button">Company News Summarizer</Link>
+                    <Link to="/app-alert" className="nav-button">App Release Updater</Link>
                 </nav>
                 <Routes>
                     <Route index element={<LumisForm />} />
